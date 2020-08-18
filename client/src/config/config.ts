@@ -1,5 +1,5 @@
 const env = process.env.NODE_ENV;
-const port = process.env.SATELLITE_PORT;
+const port = process.env.MITM_PORT;
 
 function getConfig(environment = 'dev') {
   const ENV = {
@@ -20,7 +20,7 @@ function getConfig(environment = 'dev') {
     docsTermRouteLink: 'https://www.verygoodsecurity.com/docs/terminology/nomenclature#route',
   };
   if (environment === 'dev') {
-    ENV.mitmLogsEndpoint = `http://localhost:${port ?? 1234}/mitms`;
+    ENV.mitmLogsEndpoint = `http://localhost:${port}`;
   };
   return ENV;
 };

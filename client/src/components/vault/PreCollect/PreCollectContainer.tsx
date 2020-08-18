@@ -6,8 +6,9 @@ import FlowsTable from 'src/components/organisms/FlowsTable/FlowsTable';
 import FlowView from 'src/components/organisms/FlowView/FlowView';
 import QuickIntegrationModal from 'src/components/organisms/QuickIntegration/QuickIntegrationModal';
 import Yaml from 'src/components/molecules/Yaml/Yaml';
-import { harToFlow, harToLog } from 'src/redux/utils/preCollect';
-import { addPrecollectLogs, triggerYamlModal, fetchMitmLogs } from 'src/redux/modules/preCollect';
+import { entryToLog, entryToFlow } from 'src/redux/utils/preCollect';
+import { addPrecollectLogs, triggerYamlModal, fetchFlows } from 'src/redux/modules/preCollect';
+import { constructUriFromLog } from 'src/redux/utils/utils';
 import { IRoute } from 'src/redux/interfaces/routes';
 
 function mapStateToProps({ preCollect }: any) {
@@ -25,7 +26,7 @@ const mapDispatchToProps = (dispatch: any) => {
     {
       addPrecollectLogs,
       triggerYamlModal,
-      fetchMitmLogs,
+      fetchFlows,
     },
     dispatch,
   );
@@ -35,7 +36,7 @@ export interface IPreCollectContainerProps {
   routeType: 'inbound' | 'outbound';
   logs: any[];
   addPrecollectLogs: (logs: any[]) => void;
-  fetchMitmLogs: () => void;
+  fetchFlows: () => void;
   preRoutes: IRoute[];
   triggerYamlModal: any;
   isYamlModalOpen: boolean;
@@ -66,7 +67,8 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
     if (isYamlModalOpen || selectedLog || isSecurePayload || isUploaded) {
       return;
     };
-    let fetchFunc = setInterval(() => props.fetchMitmLogs(), 5000);
+    props.fetchFlows();
+    let fetchFunc = setInterval(() => props.fetchFlows(), 5000);
     return () => {
       clearInterval(fetchFunc);
     };
@@ -74,7 +76,7 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
 
   const handleOnRuleCreate = (selectedPhase: 'REQUEST' | 'RESPONSE') => {
     selectLog(null);
-    securePayload(harToFlow(selectedLog, selectedPhase));
+    securePayload(entryToFlow(selectedLog, selectedPhase));
   };
 
   return (
@@ -84,14 +86,14 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
         <QuickIntegrationModal
           isReverse={preRouteType === 'inbound'}
           log={isSecurePayload}
-          url={isSecurePayload.path}
+          url={constructUriFromLog(isSecurePayload)}
           closeModal={() => securePayload(false)}
         />
       )}
 
       {selectedLog ? (
         <FlowView
-          log={harToFlow(selectedLog)}
+          log={entryToFlow(selectedLog)}
           logFilters={{}}
           showSpinner={false}
           routes={null}
@@ -104,7 +106,7 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
       {!!logs.length && (
         <FlowsTable
           onSelect={selectLog}
-          logs={logs.map(e => harToLog(e, routeType))}
+          logs={logs.map(entry => entryToLog(entry, routeType))}
         />
       )}
       <Yaml

@@ -47,24 +47,16 @@ export function triggerYamlModal(open: boolean) {
   };
 }
 
-export function fetchMitmLogs() {
-  return async (dispatch) => {
-    const response = await getMitmLogs();
-    if (response.data?.logs?.length) {
-      const logs = [];
-      response.data.logs.forEach(log => {
-        logs.push(...log.log.entries);
-      });
-      dispatch({
-        type: SET_PRE_COLLECT_LOGS,
-        data: logs,
-      });
-      dispatch({
-        type: SET_UPLOADED,
-        data: false,
-      });
-    }
-  }
+export const fetchFlows = () => async (dispatch: any) => {
+  const response = await getMitmLogs();
+  dispatch({
+    type: SET_PRE_COLLECT_LOGS,
+    data: response.data,
+  });
+  dispatch({
+    type: SET_UPLOADED,
+    data: false,
+  });
 }
 
 const initialState = {

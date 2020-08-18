@@ -20,3 +20,10 @@ Thumbs.db
 **/cypress/**/examples/
 **/cypress/videos/
 **/cypress/screenshots/
+
+# Environments
+venv/
+venv.bak/
+
+# Cache
+__pycache__/

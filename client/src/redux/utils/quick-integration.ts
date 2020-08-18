@@ -92,41 +92,46 @@ function parsePayload(payload) {
   }
 }
 
-export const getParsedLogValue = (harEntry, selectedPhase?: 'REQUEST' | 'RESPONSE') => {
+export const getParsedLogValue = (entry, selectedPhase?: 'REQUEST' | 'RESPONSE') => {
   // request
-  const requestHeaders = harEntry.request.headers;
+  const requestHeaders = entry.request.headers;
   const requestDataString = parsePayload(
-    harEntry.request.postData?.text || harEntry.request.putData?.text,
+    entry.request.postData?.text || entry.request.putData?.text || entry.request.content,
   );
 
   // response
-  const responseHeaders = harEntry.response.headers;
-  const status = harEntry.response.status === -1 ? '' : harEntry.response.status;
+  const responseHeaders = entry.response.headers;
+  const statusCode = entry.response.status || entry.response.status_code;
+  const status = statusCode === -1 ? '' : statusCode;
   const isSuccess = (status >= 200 && status <= 299);
-  const responseDataString = parsePayload(harEntry.response.content.text);
+  const responseDataString = parsePayload(entry.response.content?.text || entry.response.content);
 
   const phase = selectedPhase || 'REQUEST';
-  let contentType = harEntry[phase.toLowerCase()].headers
-    .find(header => header.name.toLowerCase() === 'content-type');
+  let contentType = entry[phase.toLowerCase()].headers
+    .find(h => h.name?.toLowerCase() === 'content-type' || h[0]?.toLowerCase() === 'content-type');
   if (contentType) {
     contentType = contentType.value;
   } else {
     contentType = '';
   }
 
-  const isReverse = harEntry.request.headers
-    .find(h => h.name.startsWith('X-Forwarded'));
+  const isReverse = entry.request.headers
+    .find(h => h.name?.startsWith('X-Forwarded') || h[0]?.startsWith('X-Forwarded'));
 
   const headers = {};
-  harEntry[phase.toLowerCase()].headers
+  entry[phase.toLowerCase()].headers
     .forEach((header) => {
-      headers[header.name] = header.value;
+      if (header.hasOwnProperty('name')) {
+        headers[header.name] = header.value;
+      } else {
+        headers[header[0]] = header[1];
+      }
     });
 
   const body =
     phase.toLowerCase() === 'response' && !!status
-      ? harEntry.response.content.text
-      : harEntry.request.postData?.text || harEntry.request.putData?.text;
+      ? entry.response.content.text || entry.response.content
+      : entry.request.postData?.text || entry.request.putData?.text || entry.request.content;
 
   return {
     phase,
@@ -137,13 +142,13 @@ export const getParsedLogValue = (harEntry, selectedPhase?: 'REQUEST' | 'RESPONS
     isResponse: !!status,
 
     request: {
-      method: harEntry.request.method,
-      date: harEntry.startedDateTime,
+      method: entry.request.method,
+      date: entry.startedDateTime,
       body: requestDataString,
       headers: requestHeaders,
-      size: harEntry.request.bodySize,
-      httpVersion: harEntry.request.httpVersion,
-      url: harEntry.request.url,
+      size: entry.request.bodySize,
+      httpVersion: entry.request.httpVersion,
+      url: entry.request.url,
     },
 
     response: {
@@ -151,9 +156,9 @@ export const getParsedLogValue = (harEntry, selectedPhase?: 'REQUEST' | 'RESPONS
       isSuccess,
       body: responseDataString,
       headers: responseHeaders,
-      size: harEntry.response.content && harEntry.response.content.size,
-      httpVersion: harEntry.response.httpVersion,
-      statusText: harEntry.response.statusText,
+      size: entry.response.content && entry.response.content.size,
+      httpVersion: entry.response.httpVersion,
+      statusText: entry.response.statusText,
       isEmptyStatus: status === '',
     },
   };
