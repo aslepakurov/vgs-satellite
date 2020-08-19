@@ -4,7 +4,7 @@ from mitmproxy.tools.web.app import Events, \
     FlowContentView, ReplayFlow, DuplicateFlow, DumpFlows, ResumeFlows, \
     KillFlows, ResumeFlow, KillFlow, ClearAll, FlowHandler
 
-from satellite.flow_handlers import Flows, HarFlows
+from satellite.flow_handlers import Flows, HarFlows, ClientConnection
 
 
 class WebApplication(tornado.web.Application):
@@ -13,6 +13,7 @@ class WebApplication(tornado.web.Application):
         super().__init__()
         self.master = master
         self.add_handlers(r'^(localhost|[0-9.]+|\[[0-9a-fA-F:]+\])$', [
+            (r"/updates", ClientConnection),
             (r"/flows(?:\.json)?", Flows),
             (r"/events(?:\.json)?", Events),
             (r"/flows/dump", DumpFlows),

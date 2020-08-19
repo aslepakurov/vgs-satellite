@@ -18,6 +18,7 @@ from mitmproxy.log import LogEntry
 
 from satellite.web_handler import WebApplication
 from satellite.flow_handlers import flow_to_json
+from satellite.vault_handler import VaultFlows
 
 
 class ProxyMaster(master.Master):
@@ -31,6 +32,7 @@ class ProxyMaster(master.Master):
             static_viewer.StaticViewer(),
             intercept.Intercept(),
             dumper.Dumper(),
+            # VaultFlows(),
             self.view
         )
         if with_termlog:
