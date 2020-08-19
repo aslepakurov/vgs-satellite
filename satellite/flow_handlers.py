@@ -2,7 +2,8 @@ import json
 import base64
 from datetime import datetime
 from datetime import timezone
-from typing import Dict, Set, Optional
+from typing import Dict, Set, Optional, ClassVar
+
 
 import tornado.escape
 
@@ -14,18 +15,32 @@ from mitmproxy import connections
 from mitmproxy import ctx
 from mitmproxy.utils import strutils
 from mitmproxy.net.http import cookies
-from mitmproxy.tools.web.app import RequestHandler
+from mitmproxy.tools.web.app import RequestHandler, WebSocketEventBroadcaster
+
 
 SERVERS_SEEN: Set[connections.ServerConnection] = set()
 
 
-class Flows(RequestHandler):
+class BaseHandler(RequestHandler):
+
+    def set_default_headers(self):
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+
+    def options(self):
+        # no body
+        self.set_status(204)
+        self.finish()
+
+
+
+class Flows(BaseHandler):
 
     def get(self):
         self.write([flow_to_json(f) for f in self.view])
 
 
-class HarFlows(RequestHandler):
+class HarFlows(BaseHandler):
 
     def get(self, flow_id):
         flow = self.flow
@@ -279,3 +294,9 @@ def flow_to_json(flow: mitmproxy.flow.Flow) -> dict:
     f.get("client_conn", {}).pop("mitmcert", None)
 
     return f
+
+class ClientConnection(WebSocketEventBroadcaster):
+    connections: ClassVar[set] = set()
+
+    def check_origin(self, origin: str):
+        return True
