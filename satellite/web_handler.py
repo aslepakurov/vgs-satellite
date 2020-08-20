@@ -8,7 +8,7 @@ from satellite.flow_handlers import Flows, HarFlows, ClientConnection, Events, \
 class WebApplication(tornado.web.Application):
 
     def __init__(self,  master):
-        super().__init__()
+        super().__init__(debug=True)
         self.master = master
         self.add_handlers(r'^(localhost|[0-9.]+|\[[0-9a-fA-F:]+\])$', [
             (r"/updates", ClientConnection),

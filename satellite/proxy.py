@@ -25,7 +25,17 @@ class ProxyMaster(master.Master):
     def __init__(self, options, with_termlog=True):
         super().__init__(options)
         self.view = view.View()
+        self.view.sig_view_add.connect(self._sig_view_add)
+        self.view.sig_view_remove.connect(self._sig_view_remove)
+        self.view.sig_view_update.connect(self._sig_view_update)
+        self.view.sig_view_refresh.connect(self._sig_view_refresh)
+
         self.events = eventstore.EventStore()
+        self.events.sig_add.connect(self._sig_events_add)
+        self.events.sig_refresh.connect(self._sig_events_refresh)
+        self.options.changed.connect(self._sig_options_update)
+        self.options.changed.connect(self._sig_settings_update)
+
         self.addons.add(*addons.default_addons())
         self.addons.add(
             webaddons.WebAddon(),
@@ -33,7 +43,8 @@ class ProxyMaster(master.Master):
             intercept.Intercept(),
             dumper.Dumper(),
             # VaultFlows(),
-            self.view
+            self.view,
+            self.events
         )
         if with_termlog:
             self.addons.add(termlog.TermLog(), termstatus.TermStatus())
