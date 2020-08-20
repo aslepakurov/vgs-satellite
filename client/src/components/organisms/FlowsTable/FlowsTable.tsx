@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import FlowStatus from './FlowStatus';
+import FlowMethod from './FlowMethod';
 import FlowDomain from './FlowDomain';
 import FlowPath from './FlowPath';
 import { ILog } from 'src/redux/interfaces/logs';
@@ -39,9 +40,9 @@ const FlowsTable: React.SFC<IFlowsTableProps> = (props) => {
               <td className="flows-table_status-column" onClick={() => onSelect(log)}>
                 <FlowStatus log={log} />
               </td>
-              {log.http && !!log.http.method &&
-                <td className="smallbold" onClick={() => onSelect(log)}>{log.http.method}</td>
-              }
+              <td className="smallbold" onClick={() => onSelect(log)}>
+                <FlowMethod log={log} />
+              </td>
               <td onClick={() => onSelect(log)}>
                 <FlowDomain log={log} />
               </td>

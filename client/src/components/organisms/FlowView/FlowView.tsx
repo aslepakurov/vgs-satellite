@@ -17,6 +17,9 @@ export interface IFlowViewProps {
   onRuleCreate: (selectedPhase: string) => void;
   onClose: () => void;
   setPreRouteType: (type: 'inbound' | 'outbound') => void;
+  onReplay: () => void;
+  onDuplicate: () => void;
+  onDelete: () => void;
 }
 
 export interface IFlowViewState {
@@ -65,6 +68,10 @@ export default class FlowView extends React.Component<IFlowViewProps, IFlowViewS
 
   handleRuleCreate() {
     this.props.onRuleCreate(this.state.selectedPhase.toUpperCase());
+  }
+
+  isMitmLog() {
+    return this.props.log.hasOwnProperty('intercepted');
   }
 
   public render() {
@@ -124,6 +131,10 @@ export default class FlowView extends React.Component<IFlowViewProps, IFlowViewS
             onRuleCreate={() => this.handleRuleCreate()}
             onSelectPhase={phase => this.selectPhase(phase)}
             setPreRouteType={this.props.setPreRouteType}
+            onReplay={this.props.onReplay}
+            onDuplicate={this.props.onDuplicate}
+            onDelete={this.props.onDelete}
+            isMitmLog={this.isMitmLog()}
           />
           {this.state.selectedTab === 'general' && (
             <div className="mb-3 pt-0">

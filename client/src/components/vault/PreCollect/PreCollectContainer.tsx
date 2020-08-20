@@ -7,7 +7,14 @@ import FlowView from 'src/components/organisms/FlowView/FlowView';
 import QuickIntegrationModal from 'src/components/organisms/QuickIntegration/QuickIntegrationModal';
 import Yaml from 'src/components/molecules/Yaml/Yaml';
 import { entryToLog, entryToFlow } from 'src/redux/utils/preCollect';
-import { addPrecollectLogs, triggerYamlModal, fetchFlows } from 'src/redux/modules/preCollect';
+import {
+  addPrecollectLogs,
+  triggerYamlModal,
+  fetchFlows,
+  replayRequest,
+  duplicateRequest,
+  deleteRequest,
+} from 'src/redux/modules/preCollect';
 import { constructUriFromLog } from 'src/redux/utils/utils';
 import { IRoute } from 'src/redux/interfaces/routes';
 
@@ -27,6 +34,9 @@ const mapDispatchToProps = (dispatch: any) => {
       addPrecollectLogs,
       triggerYamlModal,
       fetchFlows,
+      replayRequest,
+      duplicateRequest,
+      deleteRequest,
     },
     dispatch,
   );
@@ -41,6 +51,9 @@ export interface IPreCollectContainerProps {
   triggerYamlModal: any;
   isYamlModalOpen: boolean;
   isUploaded: boolean;
+  replayRequest: (logId: string) => void;
+  duplicateRequest: (logId: string) => void;
+  deleteRequest: (logId: string) => void;
 }
 
 export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerProps> = (props) => {
@@ -51,6 +64,9 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
     triggerYamlModal,
     isYamlModalOpen,
     isUploaded,
+    replayRequest,
+    duplicateRequest,
+    deleteRequest,
   } = props;
 
   const [selectedLog, selectLog] = useState(null);
@@ -68,15 +84,24 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
       return;
     };
     props.fetchFlows();
-    let fetchFunc = setInterval(() => props.fetchFlows(), 5000);
-    return () => {
-      clearInterval(fetchFunc);
-    };
   }, [isYamlModalOpen, selectedLog, isSecurePayload, isUploaded]);
 
   const handleOnRuleCreate = (selectedPhase: 'REQUEST' | 'RESPONSE') => {
     selectLog(null);
     securePayload(entryToFlow(selectedLog, selectedPhase));
+  };
+
+  const handleReplay = () => {
+    replayRequest(selectedLog.id);
+    selectLog(null);
+  }
+  const handleDuplicate = () => {
+    duplicateRequest(selectedLog.id);
+    selectLog(null);
+  }
+  const handleDelete = () => {
+    deleteRequest(selectedLog.id);
+    selectLog(null);
   };
 
   return (
@@ -100,6 +125,9 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
           onClose={() => selectLog(null)}
           onRuleCreate={(selectedPhase: string) => handleOnRuleCreate(selectedPhase)}
           setPreRouteType={type => setPreRouteType(type)}
+          onReplay={handleReplay}
+          onDuplicate={handleDuplicate}
+          onDelete={handleDelete}
         />
       ) : null}
 

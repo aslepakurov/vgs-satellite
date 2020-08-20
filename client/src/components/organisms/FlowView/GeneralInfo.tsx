@@ -5,6 +5,7 @@ import { Badge, Table } from 'reactstrap';
 import { badgeColor, getQueryParameters } from 'src/redux/utils/utils';
 import DiffSnippet from 'src/components/atoms/DiffSnippet/DiffSnippet';
 import _ from 'lodash';
+import { Icon, Popover } from 'src/components/antd';
 
 interface IGeneralInfoProps {
   log: ILog;
@@ -68,7 +69,23 @@ const GeneralInfo: React.SFC<IGeneralInfoProps> = (
         {showRequestMethod && !!http.method &&
           <tr>
             <td className="smallbold">Request Method</td>
-            <td>{http.method}</td>
+            <td>
+              <span className="d-flex text-left align-items-center">
+                {http.method}
+                {log?.request?.is_replay && (
+                  <Popover
+                    trigger="hover"
+                    content={
+                      <span className="text-sm d-inline-block">
+                        Replayed request
+                      </span>
+                    }
+                  >
+                    <Icon type="reload" className="ml-2 text-success" />
+                  </Popover>
+                )}
+              </span>
+            </td>
           </tr>
         }
         {showStatusCode && !!upstream_status &&

@@ -25,6 +25,7 @@ export function harToFlow(harEntry, selectedPhase?: 'REQUEST' | 'RESPONSE') {
 }
 
 export const mitmlogToFlow = (entry, selectedPhase) => {
+  const contentTypeHeader = entry.request.headers.find(h => h[0] === 'Content-type');
   const flow = {
     ...entry,
     flow: {
@@ -40,7 +41,7 @@ export const mitmlogToFlow = (entry, selectedPhase) => {
     data: {
       value: {
         ...getParsedLogValue(entry, selectedPhase),
-        contentType: entry.request.headers.find(h => h[0] === 'Content-type')[1],
+        contentType: contentTypeHeader ? contentTypeHeader[1] : undefined,
       }
     }
   };
@@ -79,7 +80,7 @@ export const mitmlogToLog = (entry, routeType) => {
     occurred_at: dateFromTimestamp,
     expired_at: dateFromTimestamp,
     route_type: routeType,
-    proxy_status: entry.response.status_code,
+    proxy_status: entry.response?.status_code,
     routes: {
       data: [],
     },
