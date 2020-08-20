@@ -5,6 +5,7 @@ from tornado.platform.asyncio import AsyncIOMainLoop
 from mitmproxy import master
 from mitmproxy import addons
 from mitmproxy import optmanager
+from mitmproxy.log import LogEntry
 from mitmproxy.addons import view
 from mitmproxy.addons import dumper
 from mitmproxy.addons import intercept
@@ -12,12 +13,11 @@ from mitmproxy.addons import termlog
 from mitmproxy.addons import termstatus
 from mitmproxy.addons import eventstore
 from mitmproxy.tools.web import static_viewer, webaddons
-from mitmproxy.tools.web.app import logentry_to_json
-from mitmproxy.log import LogEntry
 
-from satellite.web_handler import WebApplication
-from satellite.flow_handlers import flow_to_json, ClientConnection
-# from satellite.vault_handler import VaultFlows
+from satellite.web_application import WebApplication
+from satellite.handlers.ws_event_handler import ClientConnection
+from satellite.handlers.flow_handlers import flow_to_json, logentry_to_json
+# from satellite.handlers.vault_handler import VaultFlows
 
 
 class ProxyMaster(master.Master):
@@ -32,6 +32,7 @@ class ProxyMaster(master.Master):
         self.events = eventstore.EventStore()
         self.events.sig_add.connect(self._sig_events_add)
         self.events.sig_refresh.connect(self._sig_events_refresh)
+
         self.options.changed.connect(self._sig_options_update)
         self.options.changed.connect(self._sig_settings_update)
 

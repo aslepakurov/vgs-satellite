@@ -1,5 +1,4 @@
 from mitmproxy import ctx
-from mitmproxy.tools.web.app import RequestHandler
 
 
 class VaultFlows:
