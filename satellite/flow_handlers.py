@@ -24,15 +24,15 @@ from mitmproxy.tools.web.app import RequestHandler, WebSocketEventBroadcaster
 
 SERVERS_SEEN: Set[connections.ServerConnection] = set()
 
-
+# change approach
 class BaseHandler(RequestHandler):
 
     def set_default_headers(self):
         self.set_header("Access-Control-Allow-Origin", "*")
-        self.set_header('Access-Control-Allow-Methods', 'POST, GET, DELETE, PUT, OPTIONS')
+        self.set_header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
 
-    def options(self):
-        # no body
+    # remove flow_id
+    def options(self, flow_id):
         self.set_status(200)
         self.finish()
 
