@@ -1,9 +1,11 @@
 import tornado.web
+# import tornado.websocket
 
-from satellite.flow_handlers import Flows, HarFlows, ClientConnection, Events, \
+from satellite.flow_handlers import Flows, HarFlows, Events, \
     FlowContentView, ReplayFlow, DuplicateFlow, ResumeFlows, \
-    KillFlows, ResumeFlow, KillFlow, ClearAll, FlowHandler
+    KillFlows, ResumeFlow, KillFlow, ClearAll, FlowHandler, ClientConnection
 
+# from mitmproxy.tools.web.app import ClientConnection
 
 class WebApplication(tornado.web.Application):
 

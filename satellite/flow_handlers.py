@@ -1,12 +1,12 @@
 import json
 import base64
-from io import BytesIO
 from datetime import datetime
 from datetime import timezone
 from typing import Dict, Set, Optional, ClassVar
 
 
-import tornado.escape
+# import tornado.escape
+import tornado.websocket
 
 import mitmproxy.flow
 import mitmproxy.tools.web.master
@@ -28,6 +28,7 @@ SERVERS_SEEN: Set[connections.ServerConnection] = set()
 class BaseHandler(RequestHandler):
 
     def set_default_headers(self):
+        # super().set_default_headers()
         self.set_header("Access-Control-Allow-Origin", "*")
         self.set_header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
 
