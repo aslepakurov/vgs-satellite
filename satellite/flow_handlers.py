@@ -33,7 +33,7 @@ class BaseHandler(RequestHandler):
 
     def options(self):
         # no body
-        self.set_status(204)
+        self.set_status(200)
         self.finish()
 
 
