@@ -47,6 +47,7 @@ class FlowHandler(BaseHandler):
         if self.flow.killable:
             self.flow.kill()
         self.view.remove([self.flow])
+        self.set_status(200)
 
     def put(self, flow_id):
         flow = self.flow
