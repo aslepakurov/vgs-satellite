@@ -12,10 +12,7 @@
 * [Description](#description)
 * [Environment variables](#environment-variables)
 * [Running from github](#running-from-github)
-* [Node Package Manager](#node-package-manager)
-* [Docker image](#docker-image)
 * [How to run](#how-to-use)
-* [Mitmproxy](#running-mimtmproxy-separately)
 <!-- tocstop -->
 
 ## Description
@@ -38,6 +35,7 @@ without any need to sign up.
    **Note:** Not all mitmproxy configurations may be supported. If you encountered any issue, please contact satellite@verygoodsecurity.com
     
 1. Run application...
+
     a) ...in browser 
     ```bash
         npm i
