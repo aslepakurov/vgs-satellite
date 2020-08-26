@@ -5,6 +5,7 @@ from satellite.handlers.ws_event_handler import ClientConnection
 from satellite.handlers.flow_handlers import Flows, Events, \
     FlowContentView, ReplayFlow, DuplicateFlow, ResumeFlows, \
     KillFlows, ResumeFlow, KillFlow, ClearAll, FlowHandler, Index
+from satellite.handlers.route_handler import RoutesFlows, RouteFlows
 
 
 class WebApplication(tornado.web.Application):
@@ -15,6 +16,8 @@ class WebApplication(tornado.web.Application):
         self.add_handlers(r'^(localhost|[0-9.]+|\[[0-9a-fA-F:]+\])$', [
             (r"/", Index),
             (r"/updates", ClientConnection),
+            (r"/route", RoutesFlows),
+            (r"/route/(?P<route_id>[0-9a-f\-]+)", RouteFlows),
             (r"/flows(?:\.json)?", Flows),
             (r"/events(?:\.json)?", Events),
             # (r"/flows/dump", DumpFlows),
