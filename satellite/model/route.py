@@ -1,3 +1,6 @@
+import uuid
+from datetime import datetime
+
 from sqlalchemy import Column, Integer, String, DateTime, JSON, ForeignKey, ARRAY
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, relationship
@@ -14,20 +17,52 @@ class RouteManager:
         self.session = Session()
 
     def get_all(self):
-        return self.session.query(Route).all()
+        route_all = self.session.query(Route).all()
+        return [route.serialize for route in route_all]
 
     def get(self, route_id):
-        return self.session.query(Route)\
-            .filter(Route.id == route_id).one()
+        route = self.session.query(Route).filter(Route.id == route_id).first()
+        return route if not route else route.serialize
 
-    def create(self):
-        # self.session.add()
-        pass
+    def create(self, route):
+        route_id = route['id'] if 'id' in route else str(uuid.uuid4())
+        if self.get(route_id):
+            raise EntityAlreadyExists()
+        route_entity = Route(id=route_id,
+                             protocol=route['protocol'],
+                             source_endpoint=route['source_endpoint'],
+                             destination_override_endpoint=route['destination_override_endpoint'],
+                             host_endpoint=route['host_endpoint'],
+                             port=route['port'],
+                             tags=route['tags'],
+                             rule_entries_list=self.__parse_route_entries(route['entries'])
+                             )
+        self.session.add(route_entity)
+        self.session.commit()
 
     def delete(self, route_id):
         self.session.query(Route)\
             .filter(Route.id == route_id).delete()
         self.session.commit()
+
+    def __parse_route_entries(self, route_entries):
+        entries = []
+        for entry in route_entries:
+            entry_id = entry['id'] if 'id' in entry else str(uuid.uuid4())
+            rule_entry = RuleEntry(
+                id=entry_id,
+                phase=entry['phase'],
+                operation=entry['operation'],
+                token_manager=entry['token_manager'],
+                public_token_generator=entry['public_token_generator'],
+                transformer=entry['transformer'],
+                transformer_config=entry['transformer_config'],
+                targets=entry['targets'],
+                classifiers=entry['classifiers'],
+                expression_snapshot=entry['config']
+            )
+            entries.append(rule_entry)
+        return entries
 
 
 class ModelMixin(object):
@@ -44,7 +79,7 @@ class Route(Base):
     __tablename__ = 'rule_chains'
 
     id = Column(String, primary_key=True)
-    created_at = Column(DateTime)
+    created_at = Column(DateTime, default=datetime.utcnow)
     protocol = Column(String)
     source_endpoint = Column(String)
     destination_override_endpoint = Column(String)
@@ -73,7 +108,7 @@ class RuleEntry(Base):
     __tablename__ = 'rule_entries'
 
     id = Column(String, primary_key=True)
-    created_at = Column(DateTime)
+    created_at = Column(DateTime, default=datetime.utcnow)
     route_id = Column(String, ForeignKey('rule_chains.id'))
     rule_chain = relationship("Route", back_populates='rule_entries_list')
     phase = Column(String)
@@ -101,3 +136,7 @@ class RuleEntry(Base):
             'classifiers': self.classifiers,
             'config': self.expression_snapshot
         }
+
+
+class EntityAlreadyExists(BaseException):
+    pass
