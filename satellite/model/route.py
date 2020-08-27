@@ -18,7 +18,7 @@ class RouteManager:
 
     def get_all(self):
         route_all = self.session.query(Route).all()
-        return [route.serialize for route in route_all]
+        return [] if len(route_all) == 0 else [route.serialize for route in route_all]
 
     def get(self, route_id):
         route = self.session.query(Route).filter(Route.id == route_id).first()
@@ -41,7 +41,7 @@ class RouteManager:
         self.session.commit()
 
     def delete(self, route_id):
-        self.session.query(Route)\
+        self.session.query(Route) \
             .filter(Route.id == route_id).delete()
         self.session.commit()
 
