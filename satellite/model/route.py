@@ -18,11 +18,11 @@ class RouteManager:
 
     def get_all(self):
         route_all = self.session.query(Route).all()
-        return [] if len(route_all) == 0 else [route.serialize for route in route_all]
+        return [] if len(route_all) == 0 else [route.serialize() for route in route_all]
 
     def get(self, route_id):
         route = self.session.query(Route).filter(Route.id == route_id).first()
-        return route if not route else route.serialize
+        return route if not route else route.serialize()
 
     def create(self, route):
         route_id = route['id'] if 'id' in route else str(uuid.uuid4())
@@ -92,7 +92,6 @@ class Route(Base):
     tags = Column(JSON)
     rule_entries_list = relationship("RuleEntry", back_populates="rule_chain")
 
-    @property
     def serialize(self):
         """Return object data in easily serializable format"""
         return {
@@ -104,7 +103,7 @@ class Route(Base):
             'host_endpoint': self.host_endpoint,
             'port': self.port,
             'tags': self.tags,
-            'entries': [entry.serialize for entry in self.rule_entries_list]
+            'entries': [entry.serialize() for entry in self.rule_entries_list]
         }
 
 
@@ -125,7 +124,6 @@ class RuleEntry(Base):
     classifiers = Column(JSON)
     expression_snapshot = Column(JSON)
 
-    @property
     def serialize(self):
         return {
             'id': self.id,
