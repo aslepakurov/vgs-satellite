@@ -19,7 +19,7 @@ class RoutesFlows(BaseHandler):
         route = data['data']['attributes']
         route_id = route_manager.create(route)
         route_created = route_manager.get(route_id)
-        self.write(route_created.serialize)
+        self.write(route_created)
 
 
 class RouteFlows(BaseHandler):
