@@ -29,16 +29,20 @@ class RouteManager:
         if self.get(route_id):
             raise EntityAlreadyExists()
         route_entity = Route(id=route_id,
-                             protocol=route['protocol'],
-                             source_endpoint=route['source_endpoint'],
-                             destination_override_endpoint=route['destination_override_endpoint'],
-                             host_endpoint=route['host_endpoint'],
-                             port=route['port'],
-                             tags=route['tags'],
-                             rule_entries_list=self.__parse_route_entries(route['entries'])
+                             protocol=route.get('protocol'),
+                             source_endpoint=route.get('source_endpoint'),
+                             destination_override_endpoint=route.get('destination_override_endpoint'),
+                             host_endpoint=route.get('host_endpoint'),
+                             port=route.get('port'),
+                             tags=route.get('tags'),
+                             rule_entries_list=self.__parse_route_entries(route.get('entries'))
                              )
         self.session.add(route_entity)
         self.session.commit()
+        return route_id
+
+    def update(self, route_id, route):
+        pass
 
     def delete(self, route_id):
         self.session.query(Route) \
@@ -48,18 +52,18 @@ class RouteManager:
     def __parse_route_entries(self, route_entries):
         entries = []
         for entry in route_entries:
-            entry_id = entry['id'] if 'id' in entry else str(uuid.uuid4())
+            entry_id = entry.get('id') if 'id' in entry else str(uuid.uuid4())
             rule_entry = RuleEntry(
                 id=entry_id,
-                phase=entry['phase'],
-                operation=entry['operation'],
-                token_manager=entry['token_manager'],
-                public_token_generator=entry['public_token_generator'],
-                transformer=entry['transformer'],
-                transformer_config=entry['transformer_config'],
-                targets=entry['targets'],
-                classifiers=entry['classifiers'],
-                expression_snapshot=entry['config']
+                phase=entry.get('phase'),
+                operation=entry.get('operation'),
+                token_manager=entry.get('token_manager'),
+                public_token_generator=entry.get('public_token_generator'),
+                transformer=entry.get('transformer'),
+                transformer_config=entry.get('transformer_config'),
+                targets=entry.get('targets'),
+                classifiers=entry.get('classifiers'),
+                expression_snapshot=entry.get('config')
             )
             entries.append(rule_entry)
         return entries

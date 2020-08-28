@@ -19,12 +19,13 @@ class BaseHandler(RequestHandler):
         # super().set_default_headers()
         self.set_header("Access-Control-Allow-Origin", "*")
         self.set_header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
+        self.set_header('Access-Control-Allow-Headers', 'Accept, Content-Type')
 
     def set_json_headers(self):
         self.set_header("Accept", "application/vnd.api+json")
         self.set_header("Content-Type", "application/vnd.api+json")
 
-    def options(self, flow_id):
+    def options(self, flow_id=''):
         self.set_status(200)
         self.finish()
 

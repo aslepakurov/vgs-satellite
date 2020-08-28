@@ -17,7 +17,9 @@ class RoutesFlows(BaseHandler):
     def post(self):
         data = tornado.escape.json_decode(self.request.body)
         route = data['data']['attributes']
-        route_manager.create(route)
+        route_id = route_manager.create(route)
+        route_created = route_manager.get(route_id)
+        self.write(route_created.serialize)
 
 
 class RouteFlows(BaseHandler):
