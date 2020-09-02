@@ -1,10 +1,7 @@
 import tornado.escape
 
 from satellite.handlers.flow_handlers import BaseHandler
-from satellite.model.route import RouteManager
-
-
-route_manager = RouteManager()
+from satellite.handlers import route_manager
 
 
 class RoutesFlows(BaseHandler):

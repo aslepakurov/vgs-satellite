@@ -2,18 +2,13 @@ import uuid
 from datetime import datetime
 
 from sqlalchemy import Column, Integer, String, DateTime, JSON, ForeignKey, ARRAY
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, relationship
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+from satellite.model import Base, engine, EntityAlreadyExists
 
 
 class RouteManager:
     def __init__(self):
-        engine = create_engine('sqlite:///route.sqlite')
         Session = sessionmaker(bind=engine)
-        Base.metadata.create_all(engine)
         self.session = Session()
 
     def get_all(self):
@@ -67,16 +62,6 @@ class RouteManager:
             )
             entries.append(rule_entry)
         return entries
-
-
-class ModelMixin(object):
-
-    def __repr__(self):
-        attrs = ', '.join([
-            '{0}={1}'.format(k, repr(v))
-            for k, v in self.__dict__.items()
-        ])
-        return '{0}({1})'.format(self.__class__.__name__, attrs)
 
 
 class Route(Base):
@@ -138,7 +123,3 @@ class RuleEntry(Base):
             'classifiers': self.classifiers,
             'config': self.expression_snapshot
         }
-
-
-class EntityAlreadyExists(BaseException):
-    pass
