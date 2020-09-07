@@ -18,6 +18,7 @@ interface IYamlProps {
   isExternal?: boolean;
   setExternalToggle?: (open: boolean) => void;
   isExternalOpen?: boolean;
+  handleSaveRoute: (route: IRoute) => void;
 }
 
 const Yaml: React.FC<IYamlProps> = (props) => {
@@ -49,7 +50,11 @@ const Yaml: React.FC<IYamlProps> = (props) => {
   const openModal = (event: any) => {
     event.preventDefault();
     setIsOpenModal(true);
-    getRouteYamlStr(props.routes.inbound);
+    getRouteYamlStr(props.route || props.routes.inbound);
+  };
+  
+  const saveRoute = () => {
+    props.handleSaveRoute(props.routes[activeTab]);
   };
 
   const tabs = [
@@ -91,6 +96,12 @@ const Yaml: React.FC<IYamlProps> = (props) => {
             eventLabel="User downloaded a route"
             buttonName={`Export ${tab.label} YAML`}
           />
+          {!props.route && (
+            <Button type='primary' onClick={saveRoute} className='ml-3'>
+              <Icon type='save' />
+              Save route
+            </Button>
+          )}
         </div>
       </TabPane>
     ));
@@ -151,39 +162,45 @@ const Yaml: React.FC<IYamlProps> = (props) => {
             </p>
           </div>
         </div>
-        <div className="ta-left">
-          <Nav tabs>
-            {tabList(tabs)}
-            <div className="cursor-pointer position-absolute right mr-4 mt-2">
-              <Popover
-                content={(
-                  <span className="text-sm d-inline-block">
-                    Normally you will need only one route to set up either
-                    <br />
-                    <strong>inbound connection </strong>
-                    (Your Client ﹤﹥ VGS ﹤﹥ Your Server)
-                    <br />
-                    or <strong>outbound connection </strong>
-                    (Your Server ﹤﹥ VGS ﹤﹥ Third party).
-                    <br />
-                    {externalLink('docsTermRoute', 'Read more')}
-                  </span>
-                )}
-                trigger="hover"
-              >
-                <Icon
-                  type="question-circle"
-                  theme="filled"
-                  className="ml-2 align-self-center text-secondary"
-                  style={{ fontSize: '14px' }}
-                />
-              </Popover>
-            </div>
-          </Nav>
-          <TabContent activeTab={activeTab}>
-            {tabContent(tabs)}
+        {props.route ? (
+          <TabContent activeTab={'route'}>
+            {tabContent([{ name: 'route', label: '', syntax: 'yaml' }])}
           </TabContent>
-        </div>
+        ) : (
+          <div className="ta-left">
+            <Nav tabs>
+              {tabList(tabs)}
+              <div className="cursor-pointer position-absolute right mr-4 mt-2">
+                <Popover
+                  content={(
+                    <span className="text-sm d-inline-block">
+                      Normally you will need only one route to set up either
+                      <br />
+                      <strong>inbound connection </strong>
+                      (Your Client ﹤﹥ VGS ﹤﹥ Your Server)
+                      <br />
+                      or <strong>outbound connection </strong>
+                      (Your Server ﹤﹥ VGS ﹤﹥ Third party).
+                      <br />
+                      {externalLink('docsTermRoute', 'Read more')}
+                    </span>
+                  )}
+                  trigger="hover"
+                >
+                  <Icon
+                    type="question-circle"
+                    theme="filled"
+                    className="ml-2 align-self-center text-secondary"
+                    style={{ fontSize: '14px' }}
+                  />
+                </Popover>
+              </div>
+            </Nav>
+            <TabContent activeTab={activeTab}>
+              {tabContent(tabs)}
+            </TabContent>
+          </div>
+        )}
       </Modal>
     </div>
   );

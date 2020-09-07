@@ -11,3 +11,12 @@ export function getUpstream(route: IRoute) {
 export function getRouteType(route: IRoute) {
   return route.destination_override_endpoint !== '*' ? 'Inbound' : 'Outbound';
 }
+
+export function isInbound(route: IRoute) {
+  return getProxyType(route) === 'Reverse';
+}
+
+export function getRouteProtocol(route: IRoute) {
+  const protocol = route.protocol.toLowerCase();
+  return protocol === 'http' || protocol === 'https' ? 'routes' : 'sftp';
+}

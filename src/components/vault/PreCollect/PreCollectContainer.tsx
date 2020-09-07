@@ -15,16 +15,18 @@ import {
   duplicateRequest,
   deleteRequest,
 } from 'src/redux/modules/preCollect';
+import { saveRoute } from 'src/redux/modules/routes';
 import { constructUriFromLog } from 'src/redux/utils/utils';
 import { IRoute } from 'src/redux/interfaces/routes';
 
-function mapStateToProps({ preCollect }: any) {
+function mapStateToProps({ preCollect, routes }: any) {
   return {
     logs: preCollect.list,
     preRoute: preCollect.route,
     preRoutes: preCollect.routes,
     isYamlModalOpen: preCollect.isYamlModalOpen,
     isUploaded: preCollect.isUploaded,
+    isSavingRoute: routes.isSaveInProgress,
   };
 }
 
@@ -37,6 +39,7 @@ const mapDispatchToProps = (dispatch: any) => {
       replayRequest,
       duplicateRequest,
       deleteRequest,
+      saveRoute,
     },
     dispatch,
   );
@@ -51,9 +54,11 @@ export interface IPreCollectContainerProps {
   triggerYamlModal: any;
   isYamlModalOpen: boolean;
   isUploaded: boolean;
+  isSavingRoute: boolean;
   replayRequest: (logId: string) => void;
   duplicateRequest: (logId: string) => void;
   deleteRequest: (logId: string) => void;
+  saveRoute: (route: IRoute) => void;
 }
 
 export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerProps> = (props) => {
@@ -64,9 +69,11 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
     triggerYamlModal,
     isYamlModalOpen,
     isUploaded,
+    isSavingRoute,
     replayRequest,
     duplicateRequest,
     deleteRequest,
+    saveRoute,
   } = props;
 
   const [selectedLog, selectLog] = useState(null);
@@ -103,6 +110,10 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
     deleteRequest(selectedLog.id);
     selectLog(null);
   };
+
+  const handleSaveRoute = (route: IRoute) => {
+    saveRoute(route);
+  }
 
   return (
     <div className="container">
@@ -142,6 +153,8 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
         isExternal={true}
         setExternalToggle={() => triggerYamlModal(!isYamlModalOpen)}
         isExternalOpen={isYamlModalOpen}
+        handleSaveRoute={handleSaveRoute}
+        isSavingRoute={isSavingRoute}
       />
     </div>
   );

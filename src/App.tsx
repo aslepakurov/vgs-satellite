@@ -1,7 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import PreCollectContainer from 'src/components/vault/PreCollect/PreCollectContainer';
 import NavBar from 'src/components/organization/header/NavBar';
+import AppSwitch from './AppSwitch';
+import VaultSidebar from 'src/components/vault/VaultSidebar';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -10,9 +11,10 @@ const App: React.FunctionComponent = () => {
         <NavBar />
       </div>
       <div className="main-menu-content mb-3 mt-5">
-        <div className="content d-flex">
+        <VaultSidebar />
+        <div className="app-content d-flex">
           <div id="vault-content" className="container-fluid mt-5">
-            <PreCollectContainer routeType="inbound" />
+            <AppSwitch />
           </div>
         </div>
       </div>

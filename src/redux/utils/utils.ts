@@ -59,3 +59,5 @@ export function constructUriFromLog(log: ILog) {
     ? log.path
     : `${isPathPrependable ? log.scheme + '://' : ''}${log.upstream ?? ''}${isPathAppendable ? log.path : ''}`;
 }
+
+export const getFiltersWithoutOperations = (route: IRoute) => route.entries.filter(entry => !entry.operations);
