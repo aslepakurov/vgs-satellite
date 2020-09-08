@@ -34,7 +34,7 @@ class RouteManager:
                              )
         self.session.add(route_entity)
         self.session.commit()
-        return route_entity
+        return self.get(route_id)
 
     def update(self, route_id, route):
         if not self.get(route_id):
@@ -43,7 +43,7 @@ class RouteManager:
         else:
             # TODO: update
             pass
-        return route
+        return self.get(route_id)
 
     def delete(self, route_id):
         self.session.query(Route) \

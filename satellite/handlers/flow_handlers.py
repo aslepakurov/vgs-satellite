@@ -25,7 +25,7 @@ class BaseHandler(RequestHandler):
         self.set_header("Accept", "application/vnd.api+json")
         self.set_header("Content-Type", "application/vnd.api+json")
 
-    def options(self, flow_id=''):
+    def options(self, flow_id='', route_id=''):
         self.set_status(200)
         self.finish()
 
