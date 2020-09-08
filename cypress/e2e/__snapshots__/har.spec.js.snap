@@ -43,10 +43,6 @@ exports[`Localhoste upload single har flow > Visits Localhoste and gets 2 yamls 
         <table class="general-table pb-3 table">
           <tbody>
             <tr>
-              <td class="smallbold w-25">Type</td>
-              <td><span></span></td>
-            </tr>
-            <tr>
               <td class="smallbold">URL</td>
               <td>http://httpbin.org/post</td>
             </tr>

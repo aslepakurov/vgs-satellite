@@ -37,10 +37,6 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
         <table class="general-table pb-3 table">
           <tbody>
             <tr>
-              <td class="smallbold w-25">Type</td>
-              <td><span></span></td>
-            </tr>
-            <tr>
               <td class="smallbold">URL</td>
               <td>https://httpbin.org/get</td>
             </tr>
@@ -737,10 +733,6 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
       <div class="mb-3 pt-0">
         <table class="general-table pb-3 table">
           <tbody>
-            <tr>
-              <td class="smallbold w-25">Type</td>
-              <td><span></span></td>
-            </tr>
             <tr>
               <td class="smallbold">URL</td>
               <td>https://httpbin.org/patch</td>
@@ -1548,10 +1540,6 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
       <div class="mb-3 pt-0">
         <table class="general-table pb-3 table">
           <tbody>
-            <tr>
-              <td class="smallbold w-25">Type</td>
-              <td><span></span></td>
-            </tr>
             <tr>
               <td class="smallbold">URL</td>
               <td>https://httpbin.org/put</td>
@@ -2382,10 +2370,6 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
         <table class="general-table pb-3 table">
           <tbody>
             <tr>
-              <td class="smallbold w-25">Type</td>
-              <td><span></span></td>
-            </tr>
-            <tr>
               <td class="smallbold">URL</td>
               <td>https://httpbin.org/delete</td>
             </tr>
@@ -3192,10 +3176,6 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
       <div class="mb-3 pt-0">
         <table class="general-table pb-3 table">
           <tbody>
-            <tr>
-              <td class="smallbold w-25">Type</td>
-              <td><span></span></td>
-            </tr>
             <tr>
               <td class="smallbold">URL</td>
               <td>http://httpbin.org/post</td>
