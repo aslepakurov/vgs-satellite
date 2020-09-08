@@ -1,14 +1,21 @@
 import uuid
 from datetime import datetime
 
+from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, DateTime, JSON, ForeignKey, ARRAY
 from sqlalchemy.orm import sessionmaker, relationship
-from satellite.model import Base, engine, EntityAlreadyExists
+# from satellite.model import Base, engine, EntityAlreadyExists
+from satellite.model import EntityAlreadyExists
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 
 class RouteManager:
     def __init__(self):
+        engine = create_engine('sqlite:///route.sqlite')
         Session = sessionmaker(bind=engine)
+        Base.metadata.create_all(engine)
         self.session = Session()
 
     def get_all(self):
@@ -34,7 +41,7 @@ class RouteManager:
                              )
         self.session.add(route_entity)
         self.session.commit()
-        return self.get(route_id)
+        return route_entity.serialize()
 
     def update(self, route_id, route):
         if not self.get(route_id):
@@ -43,7 +50,7 @@ class RouteManager:
         else:
             # TODO: update
             pass
-        return self.get(route_id)
+        return route.serialize()
 
     def delete(self, route_id):
         self.session.query(Route) \
