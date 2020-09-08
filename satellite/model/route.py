@@ -34,10 +34,16 @@ class RouteManager:
                              )
         self.session.add(route_entity)
         self.session.commit()
-        return route_id
+        return route_entity
 
     def update(self, route_id, route):
-        pass
+        if not self.get(route_id):
+            route['id'] = route_id
+            self.create(route)
+        else:
+            # TODO: update
+            pass
+        return route
 
     def delete(self, route_id):
         self.session.query(Route) \
@@ -75,7 +81,7 @@ class Route(Base):
     host_endpoint = Column(String)
     port = Column(Integer)
     tags = Column(JSON)
-    rule_entries_list = relationship("RuleEntry", back_populates="rule_chain")
+    rule_entries_list = relationship("RuleEntry", back_populates="rule_chain", cascade="all, delete-orphan")
 
     def serialize(self):
         """Return object data in easily serializable format"""
