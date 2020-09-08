@@ -3,7 +3,7 @@ from datetime import datetime
 
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, DateTime, JSON, ForeignKey, ARRAY
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy.orm import sessionmaker, relationship, backref
 # from satellite.model import Base, engine, EntityAlreadyExists
 from satellite.model import EntityAlreadyExists
 from sqlalchemy.ext.declarative import declarative_base
@@ -30,32 +30,32 @@ class RouteManager:
         route_id = route['id'] if 'id' in route else str(uuid.uuid4())
         if self.get(route_id):
             raise EntityAlreadyExists()
-        route_entity = Route(id=route_id,
-                             protocol=route.get('protocol'),
-                             source_endpoint=route.get('source_endpoint'),
-                             destination_override_endpoint=route.get('destination_override_endpoint'),
-                             host_endpoint=route.get('host_endpoint'),
-                             port=route.get('port'),
-                             tags=route.get('tags'),
-                             rule_entries_list=self.__parse_route_entries(route.get('entries'))
-                             )
+        route_entity = self.__parse_route(route, route_id)
         self.session.add(route_entity)
         self.session.commit()
         return route_entity.serialize()
 
     def update(self, route_id, route):
-        if not self.get(route_id):
-            route['id'] = route_id
-            self.create(route)
-        else:
-            # TODO: update
-            pass
-        return route.serialize()
+        if self.get(route_id):
+            self.delete(route_id)
+        route['id'] = route_id
+        return self.create(route)
 
     def delete(self, route_id):
         self.session.query(Route) \
             .filter(Route.id == route_id).delete()
         self.session.commit()
+
+    def __parse_route(self, route, route_id):
+        return Route(id=route_id,
+                     protocol=route.get('protocol'),
+                     source_endpoint=route.get('source_endpoint'),
+                     destination_override_endpoint=route.get('destination_override_endpoint'),
+                     host_endpoint=route.get('host_endpoint'),
+                     port=route.get('port'),
+                     tags=route.get('tags'),
+                     rule_entries_list=self.__parse_route_entries(route.get('entries'))
+                     )
 
     def __parse_route_entries(self, route_entries):
         entries = []
@@ -88,7 +88,7 @@ class Route(Base):
     host_endpoint = Column(String)
     port = Column(Integer)
     tags = Column(JSON)
-    rule_entries_list = relationship("RuleEntry", back_populates="rule_chain", cascade="all, delete-orphan")
+    rule_entries_list = relationship("RuleEntry", back_populates="rule_chain", cascade="all, delete, delete-orphan")
 
     def serialize(self):
         """Return object data in easily serializable format"""
