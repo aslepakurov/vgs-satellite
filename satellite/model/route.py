@@ -3,7 +3,7 @@ from datetime import datetime
 
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, DateTime, JSON, ForeignKey, ARRAY
-from sqlalchemy.orm import sessionmaker, relationship, backref
+from sqlalchemy.orm import sessionmaker, relationship
 # from satellite.model import Base, engine, EntityAlreadyExists
 from satellite.model import EntityAlreadyExists
 from sqlalchemy.ext.declarative import declarative_base
