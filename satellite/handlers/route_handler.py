@@ -14,9 +14,8 @@ class RoutesFlows(BaseHandler):
     def post(self):
         data = tornado.escape.json_decode(self.request.body)
         route = data['data']['attributes']
-        route_id = route_manager.create(route)
-        route_created = route_manager.get(route_id)
-        self.write(route_created)
+        route_entity = route_manager.create(route)
+        self.write(route_entity)
 
 
 class RouteFlows(BaseHandler):
@@ -27,7 +26,10 @@ class RouteFlows(BaseHandler):
         self.write(route)
 
     def put(self, route_id):
-        pass
+        data = tornado.escape.json_decode(self.request.body)
+        route = data['data']['attributes']
+        route_entity = route_manager.update(route_id, route)
+        self.write(route_entity)
 
     def delete(self, route_id):
         route_manager.delete(route_id)
