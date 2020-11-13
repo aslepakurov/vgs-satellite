@@ -25,7 +25,7 @@ describe('Localhoste redact-reveal flow', function() {
 
     // visit requests page and send request via proxy
     cy.get('.menu-item')
-      .contains('Requests')
+      .contains('Logs')
       .click();
 
     cy.wait(['@getRoutes', '@getFlows']);
@@ -76,7 +76,7 @@ describe('Localhoste redact-reveal flow', function() {
 
     // visit requests page and send request with alias via proxy
     cy.get('.menu-item')
-      .contains('Requests')
+      .contains('Logs')
       .click();
 
     cy.wait(['@getRoutes', '@getFlows']);
