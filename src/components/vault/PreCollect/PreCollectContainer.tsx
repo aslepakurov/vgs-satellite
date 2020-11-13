@@ -179,7 +179,7 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
       {!!logs.length ? (
         <FlowsTable
           onSelect={selectLog}
-          logs={logs.map(entry => entryToLog(entry, routeType))}
+          logs={logs.reverse().map(entry => entryToLog(entry, routeType))}
         />
       ) : (
         <div data-role="demo-curl">
