@@ -10,7 +10,7 @@ class AliasGenerator(metaclass=ABCMeta):
 
 class UUIDAliasGenerator(AliasGenerator):
     def generate(self, value):
-        return f'tok_dev_{b58encode(value).decode("UTF-8")}'[:30]
+        return f'tok_sat_{b58encode(value).decode("UTF-8")}'[:30]
 
 
 generator_map = {

@@ -58,7 +58,7 @@ def test_redact_new_token(
     with ctx.use_context(proxy_context), ctx.use_context(flow_context), ctx.use_context(route_context):
         result = alias_manager.redact('value', 'UUID')
 
-    assert result == 'tok_dev_medNmHNXKxwuHq8AvfAhmo'
+    assert result == 'tok_sat_medNmHNXKxwuHq8AvfAhmo'
     emit_audit_log.assert_called_once_with(audit_logs.VaultRecordUsageLogRecord(
         action_type=audit_logs.ActionType.CREATED,
         alias_generator='UUID',
@@ -85,7 +85,7 @@ def test_redact_existing_token(
         'satellite.service.alias_manager.get_by_value',
         Mock(return_value=Mock(
             id='ead9d833-eb9a-474c-9894-16de59682dce',
-            public_alias='tok_dev_medNmHNXKxwuHq8AvfAhmo',
+            public_alias='tok_sat_medNmHNXKxwuHq8AvfAhmo',
         )),
     )
     emit_audit_log = Mock()
@@ -101,7 +101,7 @@ def test_redact_existing_token(
     with ctx.use_context(proxy_context), ctx.use_context(flow_context), ctx.use_context(route_context):
         result = alias_manager.redact('value', 'UUID')
 
-    assert result == 'tok_dev_medNmHNXKxwuHq8AvfAhmo'
+    assert result == 'tok_sat_medNmHNXKxwuHq8AvfAhmo'
     emit_audit_log.assert_called_once_with(audit_logs.VaultRecordUsageLogRecord(
         action_type=audit_logs.ActionType.DE_DUPE,
         alias_generator='UUID',
@@ -143,7 +143,7 @@ def test_reveal(
     )
 
     with ctx.use_context(proxy_context), ctx.use_context(flow_context), ctx.use_context(route_context):
-        result = alias_manager.reveal('tok_dev_medNmHNXKxwuHq8AvfAhmo')
+        result = alias_manager.reveal('tok_sat_medNmHNXKxwuHq8AvfAhmo')
 
     assert result == 'value'
     emit_audit_log.assert_called_once_with(audit_logs.VaultRecordUsageLogRecord(
