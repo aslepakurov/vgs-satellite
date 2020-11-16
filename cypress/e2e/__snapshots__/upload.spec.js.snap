@@ -268,11 +268,17 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
     </div>
     <div class="modal-body">
       <nav class="nav-tabs nav-tabs-sm">
-        <a href="#" class="capitalize" data-role="tab-general">general</a
+        <a href="#" class="active capitalize" data-role="tab-general">general</a
         ><a href="#" class="capitalize" data-role="tab-headers">headers</a
-        ><a href="#" class="active capitalize" data-role="tab-body">body</a>
+        ><a href="#" class="capitalize" data-role="tab-body">body</a>
       </nav>
       <div class="text-center mt-3 mb-2 position-relative">
+        <button
+          type="button"
+          class="ant-btn d-flex position-absolute right-0 ant-btn-primary ant-btn-sm"
+        >
+          <span>Secure this payload</span>
+        </button>
         <div role="group" class="btn-group">
           <button
             type="button"
@@ -290,9 +296,33 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
         </div>
         <hr class="my-3 p-0" />
       </div>
-      <div class="mt-3 pt-0">
-        <div class="mb-3" data-role="log-payload-body-diff">
-          <p class="text-center mt-4">No payload found</p>
+      <div class="mb-3 pt-0">
+        <table class="general-table pb-3 table">
+          <tbody>
+            <tr>
+              <td class="smallbold">Protocol</td>
+              <td><span>http/2.0</span></td>
+            </tr>
+            <tr>
+              <td class="smallbold">URL</td>
+              <td>https://httpbin.org/delete</td>
+            </tr>
+            <tr>
+              <td class="smallbold">Request Method</td>
+              <td>
+                <span class="d-flex text-left align-items-center">DELETE</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="smallbold">Status Code</td>
+              <td><span class="badge badge-success">200</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <hr class="my-3" />
+        <div class="matching-details mx-3">
+          <h3 class="my-2">Match Information</h3>
+          <p class="text-text-light">Nothing matched</p>
         </div>
       </div>
     </div>
