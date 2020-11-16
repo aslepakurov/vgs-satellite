@@ -7,6 +7,8 @@ import { includes, flattenDeep, uniq } from 'lodash';
 import { ILog, ILogFilters } from 'src/redux/interfaces/logs';
 import { IRoute, IEntry } from 'src/redux/interfaces/routes';
 
+export const dateToFormat = (date: moment.MomentInput, format: string) => moment(date).format(format);
+
 export function formatDate(date) {
   if (moment().isSame(date, 'day')) {
     return moment.utc(date).local().format('[Today] HH:mm:ss');

@@ -18,7 +18,7 @@ import {
   editRequest,
 } from 'src/redux/modules/preCollect';
 import { saveRoute, fetchRoutes } from 'src/redux/modules/routes';
-import { constructUriFromLog } from 'src/redux/utils/utils';
+import { constructUriFromLog, dateToFormat } from 'src/redux/utils/utils';
 import { IRoute } from 'src/redux/interfaces/routes';
 
 function mapStateToProps({ preCollect, routes }: any) {
@@ -147,6 +147,12 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
   -H "Content-type: application/json" \\
   -d '{"foo": "bar"}'`
 
+  const mapAndSortLogs = (logs: any[]) =>
+      logs.map((entry) => entryToLog(entry, routeType))
+          .sort(
+              (a,b) => dateToFormat(b.occurred_at, 'X') - dateToFormat(a.occurred_at, 'X'),
+          )
+
   return (
     <div className="container-fluid">
       <UploadButton onUpload={data => onUpload(data)} />
@@ -179,7 +185,7 @@ export const PreCollectContainer: React.FunctionComponent<IPreCollectContainerPr
       {!!logs.length ? (
         <FlowsTable
           onSelect={selectLog}
-          logs={logs.reverse().map(entry => entryToLog(entry, routeType))}
+          logs={mapAndSortLogs(logs)}
         />
       ) : (
         <div data-role="demo-curl">
