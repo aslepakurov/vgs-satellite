@@ -44,7 +44,7 @@
   },
   "build": {
     "appId": "com.verygoodsecurity.satellite",
-    "artifactName": "vgs-satellite-${version}.${ext}",
+    "artifactName": "vgs-satellite-${version}-${os}.${ext}",
     "productName": "VGS Satellite",
     "directories": {
       "output": "build",
