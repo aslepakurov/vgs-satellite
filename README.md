@@ -147,7 +147,7 @@ This scenario will help you generate an outbound route using your request, made 
 
 1. Run some request with alias, proxying it through forward proxy. For example:
     ```bash
-    curl http://httpbin.org/post -k -x localhost:9099 -H "Content-type: application/json" -d '{"foo": "tok_dev_m8bMGyxWD82NJZSvjqayem"}'
+    curl http://httpbin.org/post -k -x localhost:9099 -H "Content-type: application/json" -d '{"foo": "tok_sat_m8bMGyxWD82NJZSvjqayem"}'
     ```
 1. Wait for your requests to appear
    

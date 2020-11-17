@@ -191,64 +191,62 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
     </div>
     <div class="modal-body">
       <nav class="nav-tabs nav-tabs-sm">
-        <a href="#" class="capitalize" data-role="tab-general">general</a
-        ><a href="#" class="active capitalize" data-role="tab-headers"
-          >headers</a
+        <a href="#" class="active capitalize" data-role="tab-general">general</a
+        ><a href="#" class="capitalize" data-role="tab-headers">headers</a
         ><a href="#" class="capitalize" data-role="tab-body">body</a>
       </nav>
       <div class="text-center mt-3 mb-2 position-relative">
+        <button
+          type="button"
+          class="ant-btn d-flex position-absolute right-0 ant-btn-primary ant-btn-sm"
+        >
+          <span>Secure this payload</span>
+        </button>
         <div role="group" class="btn-group">
           <button
             type="button"
             data-role="select-request-phase"
-            class="capitalize btn btn-outline btn-sm"
+            class="active capitalize btn btn-primary-light btn-sm"
           >
             request</button
           ><button
             type="button"
             data-role="select-response-phase"
-            class="active capitalize btn btn-primary-light btn-sm"
+            class="capitalize btn btn-outline btn-sm"
           >
             response
           </button>
         </div>
         <hr class="my-3 p-0" />
       </div>
-      <div class="mt-3 pt-0">
-        <section class="request mt-2">
-          <table class="header-table table table-striped">
-            <tbody>
-              <tr class="">
-                <td class="header-name">status</td>
-                <td class="header-original">200</td>
-              </tr>
-              <tr class="">
-                <td class="header-name">date</td>
-                <td class="header-original">Wed, 08 Apr 2020 13:04:14 GMT</td>
-              </tr>
-              <tr class="">
-                <td class="header-name">content-type</td>
-                <td class="header-original">application/json</td>
-              </tr>
-              <tr class="">
-                <td class="header-name">content-length</td>
-                <td class="header-original">698</td>
-              </tr>
-              <tr class="">
-                <td class="header-name">server</td>
-                <td class="header-original">gunicorn/19.9.0</td>
-              </tr>
-              <tr class="">
-                <td class="header-name">access-control-allow-origin</td>
-                <td class="header-original">*</td>
-              </tr>
-              <tr class="">
-                <td class="header-name">access-control-allow-credentials</td>
-                <td class="header-original">true</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+      <div class="mb-3 pt-0">
+        <table class="general-table pb-3 table">
+          <tbody>
+            <tr>
+              <td class="smallbold">Protocol</td>
+              <td><span>http/2.0</span></td>
+            </tr>
+            <tr>
+              <td class="smallbold">URL</td>
+              <td>https://httpbin.org/delete</td>
+            </tr>
+            <tr>
+              <td class="smallbold">Request Method</td>
+              <td>
+                <span class="d-flex text-left align-items-center">DELETE</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="smallbold">Status Code</td>
+              <td><span class="badge badge-success">200</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <hr class="my-3" />
+        <div class="matching-details mx-3">
+          <h3 class="my-2">Match Information</h3>
+          <p class="text-text-light">Nothing matched</p>
+        </div>
       </div>
     </div>
   </div>
@@ -344,21 +342,28 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
     <div class="modal-body">
       <nav class="nav-tabs nav-tabs-sm">
         <a href="#" class="capitalize" data-role="tab-general">general</a
-        ><a href="#" class="capitalize" data-role="tab-headers">headers</a
-        ><a href="#" class="active capitalize" data-role="tab-body">body</a>
+        ><a href="#" class="active capitalize" data-role="tab-headers"
+          >headers</a
+        ><a href="#" class="capitalize" data-role="tab-body">body</a>
       </nav>
       <div class="text-center mt-3 mb-2 position-relative">
+        <button
+          type="button"
+          class="ant-btn d-flex position-absolute right-0 ant-btn-primary ant-btn-sm"
+        >
+          <span>Secure this payload</span>
+        </button>
         <div role="group" class="btn-group">
           <button
             type="button"
             data-role="select-request-phase"
-            class="capitalize btn btn-outline btn-sm"
+            class="active capitalize btn btn-primary-light btn-sm"
           >
             request</button
           ><button
             type="button"
             data-role="select-response-phase"
-            class="active capitalize btn btn-primary-light btn-sm"
+            class="capitalize btn btn-outline btn-sm"
           >
             response
           </button>
@@ -366,318 +371,78 @@ exports[`Localhoste upload har and clickthru > Visits Localhoste, uploads har an
         <hr class="my-3 p-0" />
       </div>
       <div class="mt-3 pt-0">
-        <div class="mb-3" data-role="log-payload-body-diff">
-          <div class="diffsnippet">
-            <table class="css-13qjma8-diff-container">
-              <tbody>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>1</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed"><pre>{</pre></td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>2</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>  "args": {}, </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>3</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>  "headers": {</pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>4</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>    "Accept": "application/json", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>5</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>    "Accept-Encoding": "gzip, deflate, br", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>6</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>
-    "Accept-Language": "uk-UA,uk;q=0.9,ru;q=0.8,en-US;q=0.7,en;q=0.6", </pre
-                    >
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>7</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>    "Cache-Control": "no-cache", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>8</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>    "Host": "httpbin.org", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>9</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>    "Pragma": "no-cache", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>10</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>    "Referer": "https://httpbin.org/", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>11</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>    "Sec-Fetch-Dest": "empty", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>12</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>    "Sec-Fetch-Mode": "cors", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>13</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>    "Sec-Fetch-Site": "same-origin", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>14</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36", </pre
-                    >
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>15</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>
-    "X-Amzn-Trace-Id": "Root=1-5e8dcbce-b6023ec2b2f1b9f02793bd1f"</pre
-                    >
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>16</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed"><pre>  }, </pre></td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>17</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>  "origin": "188.163.115.30", </pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>18</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed">
-                    <pre>  "url": "https://httpbin.org/get"</pre>
-                  </td>
-                </tr>
-                <tr class="css-1j7ahnq-line">
-                  <td class="css-5o05yy-gutter css-1h3hzrb-diff-removed">
-                    <pre>19</pre>
-                  </td>
-                  <td
-                    class="css-5o05yy-gutter css-1klnsbn-empty-gutter css-1h3hzrb-diff-removed"
-                  >
-                    <pre></pre>
-                  </td>
-                  <td class="css-1u7u2ow-marker css-1h3hzrb-diff-removed">
-                    <pre>-</pre>
-                  </td>
-                  <td class="css-1h3hzrb-diff-removed"><pre>}</pre></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <section class="request mt-2">
+          <table class="header-table table table-striped">
+            <tbody>
+              <tr class="">
+                <td class="header-name">:method</td>
+                <td class="header-original">DELETE</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">:authority</td>
+                <td class="header-original">httpbin.org</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">:scheme</td>
+                <td class="header-original">https</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">:path</td>
+                <td class="header-original">/delete</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">pragma</td>
+                <td class="header-original">no-cache</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">cache-control</td>
+                <td class="header-original">no-cache</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">accept</td>
+                <td class="header-original">application/json</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">sec-fetch-dest</td>
+                <td class="header-original">empty</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">user-agent</td>
+                <td class="header-original">
+                  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3)
+                  AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149
+                  Safari/537.36
+                </td>
+              </tr>
+              <tr class="">
+                <td class="header-name">origin</td>
+                <td class="header-original">https://httpbin.org</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">sec-fetch-site</td>
+                <td class="header-original">same-origin</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">sec-fetch-mode</td>
+                <td class="header-original">cors</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">referer</td>
+                <td class="header-original">https://httpbin.org/</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">accept-encoding</td>
+                <td class="header-original">gzip, deflate, br</td>
+              </tr>
+              <tr class="">
+                <td class="header-name">accept-language</td>
+                <td class="header-original">
+                  uk-UA,uk;q=0.9,ru;q=0.8,en-US;q=0.7,en;q=0.6
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
       </div>
     </div>
   </div>
