@@ -1,14 +1,3 @@
-exports[`Localhoste request actions flow > Send, edit, replay, delete request #0`] = `
-<div data-role="demo-curl">
-  <pre
-    class="line-numbers ant-card card px-5 bg-light  language-bash"
-  ><code class="  language-bash"><span class="token function">curl</span> https://httpbin.org/post -k <span class="token punctuation">\\</span>
-  -x localhost:9099 <span class="token punctuation">\\</span>
-  -H <span class="token string">"Content-type: application/json"</span> <span class="token punctuation">\\</span>
-  -d <span class="token string">'{"foo": "bar"}'</span></code><button type="button" class="position-absolute top right mt-2 text-muted btn btn-link btn-sm"><span id=""><i class="fa-copy fas mr-2 text-text"></i></span>Copy</button></pre>
-</div>
-`;
-
 exports[`Localhoste request actions flow > Send, duplicate, replay, edit, delete request #0`] = `
 <div data-role="demo-curl">
   <pre

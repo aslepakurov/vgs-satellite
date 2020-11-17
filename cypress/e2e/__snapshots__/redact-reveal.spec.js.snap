@@ -228,238 +228,6 @@ exports[`Localhoste redact-reveal flow > Imports redact route yaml and redacts s
 </div>
 `;
 
-exports[`Localhoste redact-reveal flow > Imports reveal route yaml and reveals sent request #0`] = `
-<div data-role="demo-curl">
-  <pre
-    class="line-numbers ant-card card px-5 bg-light  language-bash"
-  ><code class="  language-bash"><span class="token function">curl</span> https://httpbin.org/post -k <span class="token punctuation">\\</span>
-  -x localhost:9099 <span class="token punctuation">\\</span>
-  -H <span class="token string">"Content-type: application/json"</span> <span class="token punctuation">\\</span>
-  -d <span class="token string">'{"foo": "bar"}'</span></code><button type="button" class="position-absolute top right mt-2 text-muted btn btn-link btn-sm"><span id=""><i class="fa-copy fas mr-2 text-text"></i></span>Copy</button></pre>
-</div>
-`;
-
-exports[`Localhoste redact-reveal flow > Imports reveal route yaml and reveals sent request #1`] = `
-<div
-  data-role="log-details-modal"
-  class="modal-dialog modal-lg flow-detail"
-  role="document"
->
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title">Secure Data</h5>
-      <span id="" class="cursor-pointer"><i class="fa-times fas"></i></span>
-    </div>
-    <div class="modal-body">
-      <nav class="nav-tabs nav-tabs-sm">
-        <a href="#" class="active capitalize" data-role="tab-general">general</a
-        ><a href="#" class="capitalize" data-role="tab-headers">headers</a
-        ><a href="#" class="capitalize" data-role="tab-body">body</a>
-      </nav>
-      <div class="text-center mt-3 mb-2 position-relative">
-        <button
-          type="button"
-          class="ant-btn d-flex position-absolute left-0 ant-btn-ghost ant-btn-sm"
-        >
-          <i aria-label="icon: edit" class="anticon anticon-edit"
-            ><svg
-              viewBox="64 64 896 896"
-              focusable="false"
-              class=""
-              data-icon="edit"
-              width="1em"
-              height="1em"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-              ></path></svg></i
-          ><span>Edit</span></button
-        ><button
-          type="button"
-          class="ant-btn d-flex position-absolute right-0 ant-btn-primary ant-btn-sm"
-        >
-          <span>Secure this payload</span></button
-        ><span
-          ><button type="button" class="ant-btn mx-1 ant-btn-ghost ant-btn-sm">
-            <i aria-label="icon: reload" class="anticon anticon-reload"
-              ><svg
-                viewBox="64 64 896 896"
-                focusable="false"
-                class=""
-                data-icon="reload"
-                width="1em"
-                height="1em"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 0 0-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 0 1 655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 0 1 279 755.2a342.16 342.16 0 0 1-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 0 1 109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 0 0 3 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
-                ></path></svg></i
-            ><span>Replay</span></button
-          ><button type="button" class="ant-btn mx-1 ant-btn-ghost ant-btn-sm">
-            <i aria-label="icon: copy" class="anticon anticon-copy"
-              ><svg
-                viewBox="64 64 896 896"
-                focusable="false"
-                class=""
-                data-icon="copy"
-                width="1em"
-                height="1em"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                ></path></svg></i
-            ><span>Duplicate</span></button
-          ><button type="button" class="ant-btn mx-1 ant-btn-ghost ant-btn-sm">
-            <i aria-label="icon: delete" class="anticon anticon-delete"
-              ><svg
-                viewBox="64 64 896 896"
-                focusable="false"
-                class=""
-                data-icon="delete"
-                width="1em"
-                height="1em"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                ></path></svg></i
-            ><span>Delete</span>
-          </button></span
-        >
-        <hr class="my-3 p-0" />
-      </div>
-      <div class="mb-3 pt-0">
-        <table class="general-table pb-3 table">
-          <tbody>
-            <tr>
-              <td class="smallbold w-25">Type</td>
-              <td><span>outbound</span></td>
-            </tr>
-            <tr>
-              <td class="smallbold">Protocol</td>
-              <td><span>HTTP/1.1</span></td>
-            </tr>
-            <tr>
-              <td class="smallbold">URL</td>
-              <td>http://httpbin.org/post</td>
-            </tr>
-            <tr>
-              <td class="smallbold">Request Method</td>
-              <td>
-                <span class="d-flex text-left align-items-center">POST</span>
-              </td>
-            </tr>
-            <tr>
-              <td class="smallbold">Status Code</td>
-              <td><span class="badge badge-success">200</span></td>
-            </tr>
-          </tbody>
-        </table>
-        <hr class="my-3" />
-        <div class="matching-details mx-3">
-          <h3 class="my-2">Match Information</h3>
-          <div class="row">
-            <div class="col-1 pr-0"><p class="heading my-2">Route Type</p></div>
-            <div class="col-4"><p class="heading my-2">Route ID</p></div>
-            <div class="col-6 pl-0">
-              <p class="heading my-2">Upstream Host</p>
-            </div>
-            <div class="col-1 pl-0 text-center"></div>
-            <div class="matching-route w-100 mb-3">
-              <div class="row heading w-100 mx-0">
-                <div class="col-1 my-auto pr-0 position-relative">
-                  <p class="heading m-0 text-text">Outbound</p>
-                </div>
-                <div class="col-4">
-                  <button type="button" class="ant-btn p-0 my-1 ant-btn-link">
-                    <span>617a6c3f-7900-4214-914e-ad2f1659b5f5</span>
-                  </button>
-                </div>
-                <div class="col-7 pt-1 pl-0">
-                  <p class="my-1">httpbin\\.org</p>
-                </div>
-              </div>
-              <div class="matching-filter row w-100 mx-0 py-3">
-                <div class="col-12">
-                  <div class="row px-3">
-                    <p class="heading my-auto pt-1 text-text">Filter ID</p>
-                    <p class="my-auto ml-3 size-13 text-text">
-                      a2f9c0f6-b612-4356-bb96-d9893502d1dc
-                    </p>
-                  </div>
-                  <div class="row px-3 mt-2">
-                    <div class="col-md-2 col-xl-1 pr-0">
-                      <p class="heading text-text-light pt-1 mt-1 mb-0">
-                        Conditions
-                      </p>
-                    </div>
-                    <div class="col m-auto text-text-light d-flex">
-                      <span class="pr-3"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="none"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            fill="#2FC29F"
-                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-9 4.2l6-5.9c.2-.2.2-.5 0-.7l-.7-.8a.5.5 0 0 0-.7 0L6.7 9.7 4.4 7.4a.5.5 0 0 0-.7 0l-.7.8c-.2.2-.2.5 0 .7l3.3 3.3c.2.2.6.2.8 0z"
-                          ></path></svg></span
-                      ><strong>PathInfo, </strong><strong>ContentType</strong>
-                    </div>
-                  </div>
-                  <div class="row px-3 mt-2">
-                    <div class="col-md-2 col-xl-1 pr-0">
-                      <p class="heading text-text-light pt-1 mt-1 mb-0">
-                        Operations
-                      </p>
-                    </div>
-                    <div class="col m-auto text-text-light d-flex">
-                      <span class="pr-3"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="none"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            fill="#EF798A"
-                            fill-rule="evenodd"
-                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm1.5-8l2.3 2.1c.3.3.3.7 0 1l-.5.5c-.2.3-.7.3-1 0L8 9.6 6 11.8c-.3.3-.7.3-1 0l-.5-.5a.7.7 0 0 1 0-1L6.4 8 4.2 6a.7.7 0 0 1 0-1l.5-.5c.2-.3.7-.3 1 0L8 6.4 10 4.2c.3-.3.7-.3 1 0l.5.5c.3.2.3.7 0 1L9.6 8z"
-                            clip-rule="evenodd"
-                          ></path></svg
-                      ></span>
-                      <div
-                        class="text-mono align-self-center"
-                        data-role="route-summary-item"
-                      >
-                        <strong>Reveal</strong>&nbsp;the
-                        <strong>JSON path</strong>&nbsp;entries
-                        <strong>$.foo</strong>&nbsp;in the
-                        <strong>request</strong>&nbsp;targets:
-                        <strong>body</strong>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Localhoste redact-reveal flow > Imports redact route yaml and redacts sent request #2`] = `
 <div data-role="demo-curl">
   <pre
@@ -1132,6 +900,238 @@ exports[`Localhoste redact-reveal flow > Imports redact route yaml and redacts s
                         data-role="route-summary-item"
                       >
                         <strong>Redact</strong>&nbsp;the
+                        <strong>JSON path</strong>&nbsp;entries
+                        <strong>$.foo</strong>&nbsp;in the
+                        <strong>request</strong>&nbsp;targets:
+                        <strong>body</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Localhoste redact-reveal flow > Imports reveal route yaml and reveals sent request #0`] = `
+<div data-role="demo-curl">
+  <pre
+    class="line-numbers ant-card card px-5 bg-light  language-bash"
+  ><code class="  language-bash"><span class="token function">curl</span> https://httpbin.org/post -k <span class="token punctuation">\\</span>
+  -x localhost:9099 <span class="token punctuation">\\</span>
+  -H <span class="token string">"Content-type: application/json"</span> <span class="token punctuation">\\</span>
+  -d <span class="token string">'{"foo": "bar"}'</span></code><button type="button" class="position-absolute top right mt-2 text-muted btn btn-link btn-sm"><span id=""><i class="fa-copy fas mr-2 text-text"></i></span>Copy</button></pre>
+</div>
+`;
+
+exports[`Localhoste redact-reveal flow > Imports reveal route yaml and reveals sent request #1`] = `
+<div
+  data-role="log-details-modal"
+  class="modal-dialog modal-lg flow-detail"
+  role="document"
+>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Secure Data</h5>
+      <span id="" class="cursor-pointer"><i class="fa-times fas"></i></span>
+    </div>
+    <div class="modal-body">
+      <nav class="nav-tabs nav-tabs-sm">
+        <a href="#" class="active capitalize" data-role="tab-general">general</a
+        ><a href="#" class="capitalize" data-role="tab-headers">headers</a
+        ><a href="#" class="capitalize" data-role="tab-body">body</a>
+      </nav>
+      <div class="text-center mt-3 mb-2 position-relative">
+        <button
+          type="button"
+          class="ant-btn d-flex position-absolute left-0 ant-btn-ghost ant-btn-sm"
+        >
+          <i aria-label="icon: edit" class="anticon anticon-edit"
+            ><svg
+              viewBox="64 64 896 896"
+              focusable="false"
+              class=""
+              data-icon="edit"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+              ></path></svg></i
+          ><span>Edit</span></button
+        ><button
+          type="button"
+          class="ant-btn d-flex position-absolute right-0 ant-btn-primary ant-btn-sm"
+        >
+          <span>Secure this payload</span></button
+        ><span
+          ><button type="button" class="ant-btn mx-1 ant-btn-ghost ant-btn-sm">
+            <i aria-label="icon: reload" class="anticon anticon-reload"
+              ><svg
+                viewBox="64 64 896 896"
+                focusable="false"
+                class=""
+                data-icon="reload"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 0 0-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 0 1 655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 0 1 279 755.2a342.16 342.16 0 0 1-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 0 1 109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 0 0 3 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+                ></path></svg></i
+            ><span>Replay</span></button
+          ><button type="button" class="ant-btn mx-1 ant-btn-ghost ant-btn-sm">
+            <i aria-label="icon: copy" class="anticon anticon-copy"
+              ><svg
+                viewBox="64 64 896 896"
+                focusable="false"
+                class=""
+                data-icon="copy"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                ></path></svg></i
+            ><span>Duplicate</span></button
+          ><button type="button" class="ant-btn mx-1 ant-btn-ghost ant-btn-sm">
+            <i aria-label="icon: delete" class="anticon anticon-delete"
+              ><svg
+                viewBox="64 64 896 896"
+                focusable="false"
+                class=""
+                data-icon="delete"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                ></path></svg></i
+            ><span>Delete</span>
+          </button></span
+        >
+        <hr class="my-3 p-0" />
+      </div>
+      <div class="mb-3 pt-0">
+        <table class="general-table pb-3 table">
+          <tbody>
+            <tr>
+              <td class="smallbold w-25">Type</td>
+              <td><span>outbound</span></td>
+            </tr>
+            <tr>
+              <td class="smallbold">Protocol</td>
+              <td><span>HTTP/1.1</span></td>
+            </tr>
+            <tr>
+              <td class="smallbold">URL</td>
+              <td>http://httpbin.org/post</td>
+            </tr>
+            <tr>
+              <td class="smallbold">Request Method</td>
+              <td>
+                <span class="d-flex text-left align-items-center">POST</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="smallbold">Status Code</td>
+              <td><span class="badge badge-success">200</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <hr class="my-3" />
+        <div class="matching-details mx-3">
+          <h3 class="my-2">Match Information</h3>
+          <div class="row">
+            <div class="col-1 pr-0"><p class="heading my-2">Route Type</p></div>
+            <div class="col-4"><p class="heading my-2">Route ID</p></div>
+            <div class="col-6 pl-0">
+              <p class="heading my-2">Upstream Host</p>
+            </div>
+            <div class="col-1 pl-0 text-center"></div>
+            <div class="matching-route w-100 mb-3">
+              <div class="row heading w-100 mx-0">
+                <div class="col-1 my-auto pr-0 position-relative">
+                  <p class="heading m-0 text-text">Outbound</p>
+                </div>
+                <div class="col-4">
+                  <button type="button" class="ant-btn p-0 my-1 ant-btn-link">
+                    <span>617a6c3f-7900-4214-914e-ad2f1659b5f5</span>
+                  </button>
+                </div>
+                <div class="col-7 pt-1 pl-0">
+                  <p class="my-1">httpbin\\.org</p>
+                </div>
+              </div>
+              <div class="matching-filter row w-100 mx-0 py-3">
+                <div class="col-12">
+                  <div class="row px-3">
+                    <p class="heading my-auto pt-1 text-text">Filter ID</p>
+                    <p class="my-auto ml-3 size-13 text-text">
+                      a2f9c0f6-b612-4356-bb96-d9893502d1dc
+                    </p>
+                  </div>
+                  <div class="row px-3 mt-2">
+                    <div class="col-md-2 col-xl-1 pr-0">
+                      <p class="heading text-text-light pt-1 mt-1 mb-0">
+                        Conditions
+                      </p>
+                    </div>
+                    <div class="col m-auto text-text-light d-flex">
+                      <span class="pr-3"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="none"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill="#2FC29F"
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-9 4.2l6-5.9c.2-.2.2-.5 0-.7l-.7-.8a.5.5 0 0 0-.7 0L6.7 9.7 4.4 7.4a.5.5 0 0 0-.7 0l-.7.8c-.2.2-.2.5 0 .7l3.3 3.3c.2.2.6.2.8 0z"
+                          ></path></svg></span
+                      ><strong>PathInfo, </strong><strong>ContentType</strong>
+                    </div>
+                  </div>
+                  <div class="row px-3 mt-2">
+                    <div class="col-md-2 col-xl-1 pr-0">
+                      <p class="heading text-text-light pt-1 mt-1 mb-0">
+                        Operations
+                      </p>
+                    </div>
+                    <div class="col m-auto text-text-light d-flex">
+                      <span class="pr-3"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="none"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill="#EF798A"
+                            fill-rule="evenodd"
+                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm1.5-8l2.3 2.1c.3.3.3.7 0 1l-.5.5c-.2.3-.7.3-1 0L8 9.6 6 11.8c-.3.3-.7.3-1 0l-.5-.5a.7.7 0 0 1 0-1L6.4 8 4.2 6a.7.7 0 0 1 0-1l.5-.5c.2-.3.7-.3 1 0L8 6.4 10 4.2c.3-.3.7-.3 1 0l.5.5c.3.2.3.7 0 1L9.6 8z"
+                            clip-rule="evenodd"
+                          ></path></svg
+                      ></span>
+                      <div
+                        class="text-mono align-self-center"
+                        data-role="route-summary-item"
+                      >
+                        <strong>Reveal</strong>&nbsp;the
                         <strong>JSON path</strong>&nbsp;entries
                         <strong>$.foo</strong>&nbsp;in the
                         <strong>request</strong>&nbsp;targets:
