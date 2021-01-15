@@ -1,7 +1,7 @@
 {
   "name": "vgs-satellite",
-  "version": "1.2.0",
-  "description": "VGS Offline integration project",
+  "version": "1.3.0",
+  "description": "VGS Offline integration tool",
   "main": "src/app.js",
   "keywords": [
     "Very Good Security",

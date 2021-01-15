@@ -4,87 +4,200 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
-alembic==1.4.3            # via -r requirements.in
-altgraph==0.17            # via macholib, pyinstaller
-asgiref==3.3.1            # via mitmproxy
-attrs==20.3.0             # via pytest
-base58==2.0.1             # via -r requirements.in
-blinker==1.4              # via mitmproxy
-brotli==1.0.9             # via mitmproxy
-certifi==2020.12.5        # via mitmproxy
-cffi==1.14.4              # via cryptography
-click==7.1.2              # via flask, mitmproxy, pip-tools
-coverage==5.3.1           # via -r requirements.in
-cryptography==3.2.1       # via mitmproxy, pyopenssl
-decorator==4.4.2          # via jsonpath-ng
-factory-boy==3.2.0        # via -r requirements.in
-faker==5.4.0              # via factory-boy
-fastdiff==0.2.0           # via snapshottest
-flake8-import-order==0.18.1  # via -r requirements.in
-flake8==3.8.4             # via -r requirements.in
-flask==1.1.2              # via mitmproxy
-freezegun==1.0.0          # via -r requirements.in
-h11==0.12.0               # via wsproto
-h2==4.0.0                 # via mitmproxy
-hpack==4.0.0              # via h2
-hyperframe==6.0.0         # via h2, mitmproxy
-iniconfig==1.1.1          # via pytest
-itsdangerous==1.1.0       # via flask
-jinja2==2.11.2            # via flask
-jsonpath-ng==1.5.2        # via -r requirements.in
-kaitaistruct==0.9         # via mitmproxy
-ldap3==2.8.1              # via mitmproxy
-lxml==4.6.2               # via -r requirements.in
-macholib==1.14            # via pyinstaller
-mako==1.1.3               # via alembic
-markupsafe==1.1.1         # via jinja2, mako
-marshmallow-dataclass==8.3.0  # via -r requirements.in
-marshmallow-enum==1.5.1   # via -r requirements.in
-marshmallow-oneofschema==2.1.0  # via -r requirements.in
-marshmallow==3.10.0       # via -r requirements.in, marshmallow-dataclass, marshmallow-enum, marshmallow-oneofschema
-mccabe==0.6.1             # via flake8
-mitmproxy==5.3.0          # via -r requirements.in
-msgpack==1.0.2            # via mitmproxy
-mypy-extensions==0.4.3    # via typing-inspect
-packaging==20.8           # via pytest
-passlib==1.7.4            # via mitmproxy
-pip-tools==5.5.0          # via -r requirements.in
-pluggy==0.13.1            # via pytest
-ply==3.11                 # via jsonpath-ng
-protobuf==3.13.0          # via mitmproxy
-publicsuffix2==2.20191221  # via mitmproxy
-py==1.10.0                # via pytest
-pyasn1==0.4.8             # via ldap3, mitmproxy
-pycodestyle==2.6.0        # via flake8, flake8-import-order
-pycparser==2.20           # via cffi
-pyflakes==2.2.0           # via flake8
-pyinstaller-hooks-contrib==2020.11  # via pyinstaller
-pyinstaller==4.0          # via -r requirements.in
-pylarky==0.0.4            # via -r requirements.in
-pyopenssl==19.1.0         # via mitmproxy
-pyparsing==2.4.7          # via mitmproxy, packaging
-pyperclip==1.8.1          # via mitmproxy
-pytest==6.2.1             # via -r requirements.in
-python-dateutil==2.8.1    # via alembic, faker, freezegun
-python-editor==1.0.4      # via alembic
-ruamel.yaml.clib==0.2.2   # via ruamel.yaml
-ruamel.yaml==0.16.12      # via mitmproxy
-six==1.15.0               # via cryptography, jsonpath-ng, protobuf, pyopenssl, python-dateutil, snapshottest
-snapshottest==0.6.0       # via -r requirements.in
-sortedcontainers==2.2.2   # via mitmproxy
-sqlalchemy==1.3.20        # via -r requirements.in, alembic
-tblib==1.7.0              # via -r requirements.in
-termcolor==1.1.0          # via snapshottest
-text-unidecode==1.3       # via faker
-toml==0.10.2              # via pytest
-tornado==6.1              # via mitmproxy
-typing-extensions==3.7.4.3  # via typing-inspect
-typing-inspect==0.6.0     # via marshmallow-dataclass
-urwid==2.1.2              # via mitmproxy
-wasmer==0.4.1             # via fastdiff
-werkzeug==1.0.1           # via flask
-wsproto==0.15.0           # via mitmproxy
-zstandard==0.14.1         # via mitmproxy
+alembic==1.4.3
+    # via -r requirements.in
+altgraph==0.17
+    # via
+    #   macholib
+    #   pyinstaller
+asgiref==3.3.1
+    # via mitmproxy
+attrs==20.3.0
+    # via pytest
+base58==2.0.1
+    # via -r requirements.in
+blinker==1.4
+    # via mitmproxy
+brotli==1.0.9
+    # via mitmproxy
+certifi==2020.12.5
+    # via mitmproxy
+cffi==1.14.4
+    # via cryptography
+click==7.1.2
+    # via
+    #   flask
+    #   mitmproxy
+    #   pip-tools
+coverage==5.3.1
+    # via -r requirements.in
+cryptography==3.2.1
+    # via
+    #   mitmproxy
+    #   pyopenssl
+decorator==4.4.2
+    # via jsonpath-ng
+factory-boy==3.2.0
+    # via -r requirements.in
+faker==5.4.0
+    # via factory-boy
+fastdiff==0.2.0
+    # via snapshottest
+flake8-import-order==0.18.1
+    # via -r requirements.in
+flake8==3.8.4
+    # via -r requirements.in
+flask==1.1.2
+    # via mitmproxy
+freezegun==1.0.0
+    # via -r requirements.in
+h11==0.12.0
+    # via wsproto
+h2==4.0.0
+    # via mitmproxy
+hpack==4.0.0
+    # via h2
+hyperframe==6.0.0
+    # via
+    #   h2
+    #   mitmproxy
+iniconfig==1.1.1
+    # via pytest
+itsdangerous==1.1.0
+    # via flask
+jinja2==2.11.2
+    # via flask
+jsonpath-ng==1.5.2
+    # via -r requirements.in
+kaitaistruct==0.9
+    # via mitmproxy
+ldap3==2.8.1
+    # via mitmproxy
+lxml==4.6.2
+    # via -r requirements.in
+macholib==1.14
+    # via pyinstaller
+mako==1.1.3
+    # via alembic
+markupsafe==1.1.1
+    # via
+    #   jinja2
+    #   mako
+marshmallow-dataclass==8.3.0
+    # via -r requirements.in
+marshmallow-enum==1.5.1
+    # via -r requirements.in
+marshmallow-oneofschema==2.1.0
+    # via -r requirements.in
+marshmallow==3.10.0
+    # via
+    #   -r requirements.in
+    #   marshmallow-dataclass
+    #   marshmallow-enum
+    #   marshmallow-oneofschema
+mccabe==0.6.1
+    # via flake8
+mitmproxy==5.3.0
+    # via -r requirements.in
+msgpack==1.0.2
+    # via mitmproxy
+mypy-extensions==0.4.3
+    # via typing-inspect
+packaging==20.8
+    # via pytest
+passlib==1.7.4
+    # via mitmproxy
+pip-tools==5.5.0
+    # via -r requirements.in
+pluggy==0.13.1
+    # via pytest
+ply==3.11
+    # via jsonpath-ng
+protobuf==3.13.0
+    # via mitmproxy
+publicsuffix2==2.20191221
+    # via mitmproxy
+py==1.10.0
+    # via pytest
+pyasn1==0.4.8
+    # via
+    #   ldap3
+    #   mitmproxy
+pycodestyle==2.6.0
+    # via
+    #   flake8
+    #   flake8-import-order
+pycparser==2.20
+    # via cffi
+pyflakes==2.2.0
+    # via flake8
+pyinstaller-hooks-contrib==2020.11
+    # via pyinstaller
+pyinstaller==4.0
+    # via -r requirements.in
+pylarky==0.0.5
+    # via -r requirements.in
+pyopenssl==19.1.0
+    # via mitmproxy
+pyparsing==2.4.7
+    # via
+    #   mitmproxy
+    #   packaging
+pyperclip==1.8.1
+    # via mitmproxy
+pytest==6.2.1
+    # via -r requirements.in
+python-dateutil==2.8.1
+    # via
+    #   alembic
+    #   faker
+    #   freezegun
+python-editor==1.0.4
+    # via alembic
+ruamel.yaml.clib==0.2.2
+    # via ruamel.yaml
+ruamel.yaml==0.16.12
+    # via mitmproxy
+six==1.15.0
+    # via
+    #   cryptography
+    #   jsonpath-ng
+    #   protobuf
+    #   pyopenssl
+    #   python-dateutil
+    #   snapshottest
+snapshottest==0.6.0
+    # via -r requirements.in
+sortedcontainers==2.2.2
+    # via mitmproxy
+sqlalchemy==1.3.20
+    # via
+    #   -r requirements.in
+    #   alembic
+tblib==1.7.0
+    # via -r requirements.in
+termcolor==1.1.0
+    # via snapshottest
+text-unidecode==1.3
+    # via faker
+toml==0.10.2
+    # via pytest
+tornado==6.1
+    # via mitmproxy
+typing-extensions==3.7.4.3
+    # via typing-inspect
+typing-inspect==0.6.0
+    # via marshmallow-dataclass
+urwid==2.1.2
+    # via mitmproxy
+wasmer==0.4.1
+    # via fastdiff
+werkzeug==1.0.1
+    # via flask
+wsproto==0.15.0
+    # via mitmproxy
+zstandard==0.14.1
+    # via mitmproxy
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
